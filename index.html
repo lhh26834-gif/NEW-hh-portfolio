@@ -72,6 +72,13 @@
       .content p { color: #a1a1aa; line-height: 1.72; font-size: 14px; }
       .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
       .tag { border: 1px solid rgba(255,255,255,.1); border-radius: 999px; padding: 6px 10px; color: #d4d4d8; font-size: 12px; }
+      .resume { display: grid; grid-template-columns: .78fr 1.22fr; gap: 32px; align-items: start; }
+      .resume-photo { overflow: hidden; border-radius: 34px; padding: 14px; }
+      .resume-photo img { width: 100%; aspect-ratio: 5 / 7; object-fit: cover; object-position: top; display: block; border-radius: 26px; }
+      .resume-card { border-radius: 34px; padding: 36px; }
+      .resume-card p { color: #d4d4d8; line-height: 1.9; }
+      .resume-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+      .resume-tags span { border: 1px solid rgba(255,255,255,.1); border-radius: 999px; padding: 6px 10px; color: #d4d4d8; font-size: 12px; }
       .about { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; }
       .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
       .skill, .step { border-radius: 24px; padding: 22px; }
@@ -93,7 +100,7 @@
       .image-box .modal-text { max-width: 760px; margin: 0 auto; }
       @media (max-width: 900px) {
         .links { display: none; }
-        .hero, .about { grid-template-columns: 1fr; }
+        .hero, .resume, .about { grid-template-columns: 1fr; }
         .grid, .skills, .process { grid-template-columns: 1fr; }
         .work.wide { grid-column: auto; }
       }
@@ -109,7 +116,7 @@
     <header class="nav">
       <div class="wrap">
         <a class="brand" href="#"><span class="logo">HH</span><span>HH L Portfolio</span></a>
-        <nav class="links"><a href="#featured">精选</a><a href="#works">作品</a><a href="#video">视频</a><a href="#about">关于</a><a href="#contact">联系</a></nav>
+        <nav class="links"><a href="#featured">精选</a><a href="#works">作品</a><a href="#video">视频</a><a href="#resume">简历</a><a href="#about">关于</a><a href="#contact">联系</a></nav>
       </div>
     </header>
 
@@ -134,6 +141,26 @@
       <section id="featured" class="section wrap"><div class="section-head"><div class="kicker">Selected Works</div><h2>精选作品</h2><p class="desc">优先展示面试沟通中最能体现审美、叙事、商业包装和 AI 创作能力的项目。</p></div><div id="featuredGrid" class="grid"></div></section>
       <section id="works" class="section wrap"><div class="section-head"><div class="kicker">Portfolio Library</div><h2>作品分类筛选</h2><p class="desc">按照文旅、品牌、科技、短视频和社媒等方向整理，便于快速匹配不同岗位关注点。</p></div><div id="filters" class="filters"></div><div id="workGrid" class="grid"></div></section>
       <section id="video" class="section wrap"><div class="section-head"><div class="kicker">Motion Content</div><h2>视频作品展示</h2><p class="desc">用封面、播放按钮和弹窗呈现动态内容，突出短视频策划、角色 IP 和 AI 视频执行能力。</p></div><div id="videoGrid" class="grid"></div></section>
+
+      <section id="resume" class="section wrap resume">
+        <div class="resume-photo glass">
+          <img src="public/portfolio/li-minhao-profile.webp" alt="李民昊证件照" />
+          <div style="padding:20px">
+            <div class="kicker">Resume</div>
+            <h2 style="margin:12px 0 0;font-size:34px">李民昊</h2>
+            <p class="desc" style="margin:8px 0 0;font-size:14px">设计基础 / 前端 UI / AI 应用 / 项目执行</p>
+            <div class="resume-tags"><span>设计执行</span><span>前端 UI</span><span>项目安全管理</span><span>AI 工具应用</span></div>
+          </div>
+        </div>
+        <div class="resume-card glass">
+          <div class="kicker">Personal Profile</div>
+          <h2>个人简历</h2>
+          <p>我叫李民昊，2021年毕业于濮阳职业技术学院文秘（信息化应用）专业。毕业后曾从事平面设计、前端 UI 设计与页面制作等相关工作，具备一定的视觉审美能力、设计执行能力和基础前端实现经验。</p>
+          <p>后因个人发展及工作安排原因，转入土木工程行业，曾在天津援疆项目下级分包单位担任项目安全员岗位，主要负责现场安全管理、隐患排查、整改通知编制、资料整理及各方沟通协调等工作。在此过程中，我积累了一定的项目管理、现场协调、问题处理和执行落地经验，也提升了自身的责任意识与抗压能力。</p>
+          <p>2022年开始关注并了解人工智能相关技术，2023年起在实际工作中尝试运用 AI 工具辅助完成应急救援预案编写、隐患整改通知单制作、安全资料整理等工作，提高了文档处理效率和工作规范性。随着 AI 软件和大模型技术的发展，我也更加意识到 AI 对设计、内容创作和数字化办公领域的赋能作用。</p>
+          <p>我本身具备设计相关工作经历，同时也拥有工程项目一线管理经验，能够理解实际业务需求，并借助 AI 工具提升内容生产、视觉设计和工作执行效率。未来希望重新回到设计、AI 应用或数字内容相关方向发展，将过往的设计基础、项目经验和 AI 工具应用能力结合起来，在新的岗位中持续学习、快速成长，并为团队创造实际价值。</p>
+        </div>
+      </section>
 
       <section id="about" class="section wrap about">
         <div><div class="kicker">About Me</div><h2>我能为团队带来什么？</h2><p class="desc">我擅长把一个模糊的创意方向，快速拆解成可执行的视觉方案。无论是文旅海报、品牌视觉、科技产品广告、短视频封面、AI 生成图像、宠物 IP 视频，还是作品集网页，我都能从内容定位、视觉风格、信息排版到最终呈现进行完整包装。</p></div>
