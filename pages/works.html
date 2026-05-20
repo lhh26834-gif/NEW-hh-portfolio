@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>完整作品 | 李民昊</title>
+    <style>
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; color: #f7f7fb; font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; background: radial-gradient(circle at 18% 8%, rgba(45,212,191,.14), transparent 28rem), radial-gradient(circle at 84% 16%, rgba(168,85,247,.16), transparent 30rem), #09090b; }
+      a { color: inherit; text-decoration: none; } button { font: inherit; }
+      .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+      .nav { position: fixed; inset: 0 0 auto; z-index: 50; border-bottom: 1px solid rgba(255,255,255,.1); background: rgba(9,9,11,.78); backdrop-filter: blur(22px); }
+      .nav .wrap { min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+      .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; white-space: nowrap; }
+      .logo { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 14px; background: #fff; color: #09090b; }
+      .links { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; } .links::-webkit-scrollbar { display: none; }
+      .links a { flex: 0 0 auto; padding: 10px 14px; border-radius: 999px; color: #d4d4d8; font-size: 14px; }
+      .links a:hover { background: rgba(255,255,255,.1); color: #fff; }
+      .glass { border: 1px solid rgba(255,255,255,.12); background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.045)); box-shadow: 0 24px 80px rgba(0,0,0,.38); backdrop-filter: blur(22px); }
+      .kicker { color: #a5f3fc; letter-spacing: .28em; text-transform: uppercase; font-weight: 800; font-size: 13px; }
+      .hero { padding: 112px 0 44px; }
+      .hero-card { border-radius: 30px; padding: clamp(24px, 4vw, 42px); }
+      h1 { margin: 12px 0 0; font-size: clamp(40px, 6vw, 72px); line-height: 1.04; }
+      .desc { color: #a1a1aa; line-height: 1.8; font-size: 16px; max-width: 760px; }
+      .menu { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+      .btn { min-height: 44px; padding: 0 18px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.1); color: #fff; font-weight: 800; }
+      .section { padding: 54px 0; }
+      .group-title { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 20px; border-top: 1px solid rgba(255,255,255,.1); padding-top: 32px; }
+      .group-title h2 { margin: 0; font-size: clamp(30px, 4vw, 46px); }
+      .group-title p { margin: 8px 0 0; color: #a1a1aa; }
+      .banner-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
+      .poster-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; align-items: start; }
+      .work { position: relative; overflow: hidden; border-radius: 24px; cursor: pointer; transition: .25s; }
+      .work:hover { transform: translateY(-6px); }
+      .media { position: relative; overflow: hidden; background: #111; aspect-ratio: 2 / 3; }
+      .work.wide .media { aspect-ratio: 16 / 9; }
+      .media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: .55s; }
+      .work:hover .media img { transform: scale(1.04); }
+      .note { position: absolute; top: 14px; right: 14px; z-index: 2; border: 1px solid rgba(255,255,255,.15); background: rgba(0,0,0,.58); border-radius: 999px; padding: 6px 10px; font-size: 12px; color: #e4e4e7; }
+      .play { position: absolute; inset: 0; display: grid; place-items: center; }
+      .play span { width: 70px; height: 70px; border-radius: 999px; display: grid; place-items: center; background: #fff; color: #09090b; font-size: 26px; }
+      .content { padding: 20px; min-height: 198px; }
+      .meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; font-size: 13px; }
+      .cat { color: #cffafe; background: rgba(255,255,255,.1); border-radius: 999px; padding: 6px 10px; }
+      .year { color: #71717a; }
+      .content h3 { margin: 0; font-size: 20px; line-height: 1.2; }
+      .content p { color: #a1a1aa; line-height: 1.68; font-size: 14px; }
+      .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+      .tag { border: 1px solid rgba(255,255,255,.1); border-radius: 999px; padding: 6px 10px; color: #d4d4d8; font-size: 12px; }
+      .modal { position: fixed; inset: 0; display: none; place-items: center; padding: 18px; z-index: 100; background: rgba(0,0,0,.78); backdrop-filter: blur(10px); }
+      .modal.open { display: grid; }
+      .close { position: fixed; right: 22px; top: 22px; width: 44px; height: 44px; border: 0; border-radius: 999px; background: #fff; color: #09090b; cursor: pointer; font-size: 24px; }
+      .video-box { width: min(960px, 92vw); overflow: hidden; border-radius: 24px; border: 1px solid rgba(255,255,255,.15); background: #000; }
+      .video-box iframe { width: 100%; aspect-ratio: 16 / 9; background: #000; display: block; border: 0; }
+      .modal-text { padding: 20px; }
+      .image-box { width: min(1180px, 94vw); text-align: center; }
+      .image-box img { max-width: 100%; max-height: 82vh; width: auto; height: auto; border-radius: 24px; box-shadow: 0 24px 80px rgba(0,0,0,.52); }
+      .image-box .modal-text { max-width: 760px; margin: 0 auto; }
+      @media (max-width: 1120px) { .poster-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      @media (max-width: 760px) { .wrap { width: min(100% - 28px, 1180px); } .brand span:last-child { display: none; } .links a { padding: 8px 10px; font-size: 13px; } .hero { padding-top: 86px; } .banner-grid, .poster-grid { grid-template-columns: 1fr; } .work.wide .media, .media { aspect-ratio: 4 / 5; } .group-title { display: block; } .content { min-height: 0; } }
+    </style>
+  </head>
+  <body>
+    <header class="nav"><div class="wrap"><a class="brand" href="../index.html"><span class="logo">李</span><span>李民昊 Portfolio</span></a><nav class="links"><a href="../index.html">简历首页</a><a href="works.html">完整作品</a><a href="about.html">能力与联系</a></nav></div></header>
+    <main>
+      <section class="hero wrap"><div class="hero-card glass"><div class="kicker">Portfolio Library</div><h1>完整作品</h1><p class="desc">作品按横版 Banner、竖版海报和短视频分组展示。面试官可以先看分类，再进入对应作品组，信息更清晰。</p><div class="menu"><a class="btn" href="#banners">横版作品</a><a class="btn" href="#posters">竖版作品</a><a class="btn" href="#video">视频作品</a></div></div></section>
+      <section id="banners" class="section wrap"><div class="group-title"><div><h2>横版 Banner / 网页首屏</h2><p>宽幅作品统一两列展示，适合判断商业构图与视觉冲击力。</p></div><a class="btn" href="#top">回到顶部</a></div><div id="bannerGrid" class="banner-grid"></div></section>
+      <section id="posters" class="section wrap"><div class="group-title"><div><h2>竖版海报 / 图鉴长图</h2><p>竖版作品统一比例展示，页面更整齐，点击可放大查看。</p></div><a class="btn" href="#top">回到顶部</a></div><div id="posterGrid" class="poster-grid"></div></section>
+      <section id="video" class="section wrap"><div class="group-title"><div><h2>短视频与宠物 IP</h2><p>视频作品使用嵌入播放器展示，并保留 B 站跳转入口。</p></div><a class="btn" href="#top">回到顶部</a></div><div id="videoGrid" class="banner-grid"></div></section>
+    </main>
+    <div id="videoModal" class="modal"><button class="close" onclick="closeVideo()">×</button><div class="video-box"><iframe src="https://player.bilibili.com/player.html?bvid=BV1pQLy6gEem&page=1&high_quality=1&autoplay=0" title="阿白的日常 Vlog" allowfullscreen scrolling="no" frameborder="0"></iframe><div class="modal-text"><h3>阿白的日常 Vlog</h3><p>如果嵌入播放器无法播放，可以点击下方按钮在 B 站原页面观看。</p><p><a class="btn" href="https://www.bilibili.com/video/BV1pQLy6gEem/" target="_blank" rel="noreferrer">在 B 站观看 ↗</a></p></div></div></div>
+    <div id="imageModal" class="modal"><button class="close" onclick="closeImage()">×</button><div class="image-box"><img id="largeImage" src="" alt="" /><div class="modal-text"><h3 id="largeTitle"></h3><p id="largeDesc"></p></div></div></div>
+    <script>
+      const works = [
+        ['河南旅游攻略长图','文旅视觉','henan-travel-guide.png','以河南地图、景点、美食和旅行路线为核心，制作信息密度高但视觉统一的文旅攻略长图。',['文旅攻略','信息图','国风视觉'],'poster'],
+        ['云南茶马古道地图','文旅视觉','yunnan-tea-horse-road.png','以古地图和手绘插画风格呈现云南茶马古道路线，结合地域文化、山水场景和旅行叙事。',['国风地图','旅游路线','文化视觉'],'poster'],
+        ['北京冬季城市图鉴','文旅视觉','beijing-winter-atlas.png','以冬季北京为主题，结合微缩城市、地标建筑和文旅海报排版，形成高级城市图鉴视觉。',['城市图鉴','3D视觉','文旅海报'],'poster'],
+        ['北京 Beijing 城市海报','文旅视觉','beijing-retro-poster.png','以复古版画风格表现北京城市地标，突出城市文化、历史感和视觉记忆点。',['城市海报','复古插画','地标设计'],'poster'],
+        ['Voyage Beyond Time','品牌视觉','luxury-voyage-women.png','高端旅行主题网页首屏视觉练习，强调品牌感、空间感和高级商业氛围。',['网页首屏','品牌视觉','商业审美'],'wide','概念练习 / 非商业稿'],
+        ['Visionary Journeys','品牌视觉','luxury-voyage-men.png','以旅行、城市与人物为核心的高端品牌概念视觉，适合展示商业广告和网页 Banner 审美。',['品牌概念','Banner设计','高级视觉'],'wide','概念练习 / 非商业稿'],
+        ['钻石恒久远','品牌视觉','de-beers-diamond-banner.png','以钻石珠宝为主体，采用深色奢华背景、金色文字和强光影质感，营造高级珠宝广告氛围。',['珠宝广告','奢华视觉','Banner设计'],'wide','概念练习 / 非商业稿'],
+        ['突破自我 极限无限','品牌视觉','nike-running-banner.png','以运动员奔跑姿态、黑白高对比画面和强烈速度线条，呈现运动品牌广告的力量感和冲击力。',['运动广告','品牌Banner','高冲击视觉'],'wide','概念练习 / 非商业稿'],
+        ['天籁音质 肆意澎湃','科技产品','earbuds-poster.png','以无线耳机产品为核心，结合水滴、蓝色声波和科技光效，突出产品质感和功能卖点。',['产品海报','科技视觉','电商广告'],'poster'],
+        ['净享生活','科技产品','robot-vacuum-poster.png','以扫地机器人为主体，结合智能科技空间、蓝色网格光效和功能图标，呈现现代家电广告视觉。',['家电海报','科技产品','功能卖点'],'poster'],
+        ['阿白的日常 Vlog','短视频','abai-daily-vlog-cover.jpg','以奶白法斗“阿白”为主角，展示 AI 视频创作、角色 IP 包装和内容策划能力。',['宠物IP','AI视频','短视频内容'],'wide','视频作品 / B站展示',true],
+        ['A Journey of Heart and Time','电影海报','lh-movie-poster.png','将人物侧脸与山河意象结合，形成电影级个人 IP 海报，突出情绪、东方美学和叙事感。',['电影海报','个人IP','东方美学'],'poster'],
+        ['疯狂星期四活动海报','社媒营销','crazy-thursday.png','高冲击力社媒热点视觉练习，通过夸张排版、红色视觉和促销元素制造传播感。',['社媒营销','热点海报','促销视觉'],'poster','热点创意练习 / 非商业稿'],
+        ['农家走地鸡','食品广告','free-range-chicken-poster.png','以自然农场、阳光、绿色田园和产品卖点为核心，打造新鲜、健康、可信赖的农副产品广告。',['农产品海报','食品广告','田园视觉'],'poster'],
+        ['2026 插画日历','插画文创','calendar-2026.png','以十二个月份为结构，结合人物插画、季节元素和日历排版，形成系列化文创设计。',['日历设计','插画文创','系列设计'],'poster']
+      ].map(([title, category, file, desc, tags, shape, note, video]) => ({ title, category, image: `../public/portfolio/${file.replace(/\.(png|jpg|jpeg)$/i, '.webp')}`, desc, tags, shape, note, video }));
+      function escapeText(text) { return text.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, ' '); }
+      function card(work) { return `<article class="work glass ${work.shape === 'wide' ? 'wide' : ''}" onclick="${work.video ? 'openVideo()' : `openImage('${escapeText(work.title)}','${work.image}','${escapeText(work.desc)}')`}">${work.note ? `<span class="note">${work.note}</span>` : ''}<div class="media"><img src="${work.image}" alt="${work.title}" />${work.video ? '<div class="play"><span>▶</span></div>' : ''}</div><div class="content"><div class="meta"><span class="cat">${work.category}</span><span class="year">2026</span></div><h3>${work.title}</h3><p>${work.desc}</p><div class="tags">${work.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div></div></article>`; }
+      document.getElementById('bannerGrid').innerHTML = works.filter(w => w.shape === 'wide' && !w.video).map(card).join('');
+      document.getElementById('posterGrid').innerHTML = works.filter(w => w.shape !== 'wide' && !w.video).map(card).join('');
+      document.getElementById('videoGrid').innerHTML = works.filter(w => w.video).map(card).join('');
+      function openVideo() { document.getElementById('videoModal').classList.add('open'); }
+      function closeVideo() { document.getElementById('videoModal').classList.remove('open'); }
+      function openImage(title, src, desc) { document.getElementById('largeImage').src = src; document.getElementById('largeImage').alt = title; document.getElementById('largeTitle').textContent = title; document.getElementById('largeDesc').textContent = desc; document.getElementById('imageModal').classList.add('open'); }
+      function closeImage() { document.getElementById('imageModal').classList.remove('open'); }
+    </script>
+  </body>
+</html>
