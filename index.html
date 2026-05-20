@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HH L Portfolio</title>
+    <title>李民昊 | 面试作品集</title>
     <style>
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
@@ -12,192 +12,241 @@
         color: #f7f7fb;
         font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
         background:
-          radial-gradient(circle at 18% 8%, rgba(45, 212, 191, .18), transparent 28rem),
-          radial-gradient(circle at 82% 18%, rgba(168, 85, 247, .2), transparent 30rem),
-          radial-gradient(circle at 52% 82%, rgba(245, 158, 11, .11), transparent 26rem),
+          radial-gradient(circle at 16% 8%, rgba(45, 212, 191, .14), transparent 28rem),
+          radial-gradient(circle at 84% 12%, rgba(168, 85, 247, .16), transparent 30rem),
+          radial-gradient(circle at 50% 88%, rgba(245, 158, 11, .08), transparent 24rem),
           #09090b;
       }
       a { color: inherit; text-decoration: none; }
       button { font: inherit; }
-      .nav { position: fixed; inset: 0 0 auto; z-index: 50; border-bottom: 1px solid rgba(255,255,255,.1); background: rgba(9,9,11,.74); backdrop-filter: blur(22px); }
       .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
-      .nav .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
-      .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; }
-      .logo { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 16px; background: white; color: #09090b; }
+      .nav { position: fixed; inset: 0 0 auto; z-index: 50; border-bottom: 1px solid rgba(255,255,255,.1); background: rgba(9,9,11,.76); backdrop-filter: blur(22px); }
+      .nav .wrap { min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+      .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; white-space: nowrap; }
+      .logo { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 14px; background: #fff; color: #09090b; }
       .links { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
       .links::-webkit-scrollbar { display: none; }
-      .links a { padding: 10px 14px; border-radius: 999px; color: #d4d4d8; font-size: 14px; }
-      .links a:hover { background: rgba(255,255,255,.1); color: white; }
-      .hero { min-height: 100vh; padding: 118px 0 72px; display: grid; grid-template-columns: 1.04fr .96fr; align-items: center; gap: 56px; }
-      .eyebrow, .kicker { color: #a5f3fc; letter-spacing: .28em; text-transform: uppercase; font-weight: 800; font-size: 13px; }
-      .pill { display: inline-flex; margin-bottom: 24px; padding: 9px 15px; border-radius: 999px; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.1); color: #e4e4e7; letter-spacing: 0; text-transform: none; }
-      h1 { margin: 0; font-size: clamp(46px, 7vw, 78px); line-height: 1.04; }
-      .grad { background: linear-gradient(90deg, #a5f3fc, #fff, #fde68a); -webkit-background-clip: text; color: transparent; }
-      .lead, .desc { color: #d4d4d8; line-height: 1.9; font-size: 17px; }
-      .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
-      .btn { border: 0; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 999px; font-weight: 800; transition: .25s; }
-      .primary { background: white; color: #09090b; }
-      .ghost { background: rgba(255,255,255,.1); color: white; border: 1px solid rgba(255,255,255,.16); }
-      .glass { border: 1px solid rgba(255,255,255,.12); background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.045)); box-shadow: 0 24px 80px rgba(0,0,0,.42); backdrop-filter: blur(22px); }
-      .hero-card { position: relative; overflow: hidden; border-radius: 34px; padding: 12px; }
-      .hero-card img { width: 100%; max-height: 72vh; object-fit: cover; object-position: center; display: block; border-radius: 26px; }
-      .hero-caption { position: absolute; left: 28px; right: 28px; bottom: 28px; border: 1px solid rgba(255,255,255,.15); background: rgba(0,0,0,.48); border-radius: 24px; padding: 22px; backdrop-filter: blur(18px); }
-      .hero-caption small { color: #a5f3fc; letter-spacing: .28em; text-transform: uppercase; font-weight: 800; font-size: 12px; }
-      .hero-caption h2 { margin: 8px 0 6px; font-size: 26px; }
-      .hero-caption p { margin: 0; color: #d4d4d8; line-height: 1.65; font-size: 14px; }
-      .section { padding: 76px 0; }
-      .section h2 { margin: 12px 0 0; font-size: clamp(36px, 5vw, 54px); line-height: 1.08; }
-      .section-head { max-width: 760px; margin-bottom: 34px; }
-      .filters { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
-      .filter { cursor: pointer; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.07); color: #d4d4d8; border-radius: 999px; padding: 10px 16px; }
-      .filter.active, .filter:hover { background: white; color: #09090b; }
-      .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: start; }
-      .work { position: relative; overflow: hidden; border-radius: 28px; cursor: pointer; transition: .28s; }
-      .work:hover { transform: translateY(-8px); }
+      .links a { flex: 0 0 auto; padding: 10px 14px; border-radius: 999px; color: #d4d4d8; font-size: 14px; }
+      .links a:hover { background: rgba(255,255,255,.1); color: #fff; }
+      .glass { border: 1px solid rgba(255,255,255,.12); background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.045)); box-shadow: 0 24px 80px rgba(0,0,0,.38); backdrop-filter: blur(22px); }
+      .kicker { color: #a5f3fc; letter-spacing: .28em; text-transform: uppercase; font-weight: 800; font-size: 13px; }
+      .hero { min-height: 100vh; padding: 112px 0 64px; display: grid; grid-template-columns: .72fr 1.28fr; gap: 32px; align-items: start; }
+      .profile-card { overflow: hidden; border-radius: 32px; padding: 14px; }
+      .profile-card img { width: 100%; aspect-ratio: 5 / 7; object-fit: cover; object-position: top; display: block; border-radius: 24px; }
+      .profile-meta { padding: 22px 12px 10px; }
+      .profile-meta h1 { margin: 10px 0 0; font-size: clamp(38px, 5vw, 64px); line-height: 1.05; }
+      .profile-meta p { color: #a1a1aa; line-height: 1.7; margin: 10px 0 0; }
+      .tags, .resume-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+      .tag, .resume-tags span { border: 1px solid rgba(255,255,255,.1); border-radius: 999px; padding: 7px 11px; color: #d4d4d8; font-size: 12px; }
+      .resume-panel { border-radius: 32px; padding: clamp(24px, 4vw, 42px); }
+      .resume-panel h2 { margin: 12px 0 0; font-size: clamp(36px, 5vw, 58px); line-height: 1.08; }
+      .resume-text { margin-top: 24px; display: grid; gap: 16px; color: #d4d4d8; line-height: 1.9; font-size: 16px; }
+      .quick-facts { margin-top: 28px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+      .fact { border: 1px solid rgba(255,255,255,.1); border-radius: 18px; padding: 16px; background: rgba(0,0,0,.18); }
+      .fact b { display: block; font-size: 15px; }
+      .fact span { display: block; margin-top: 6px; color: #a1a1aa; font-size: 13px; line-height: 1.5; }
+      .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+      .btn { min-height: 46px; padding: 0 20px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; cursor: pointer; font-weight: 800; }
+      .primary { background: #fff; color: #09090b; }
+      .ghost { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.14); }
+      .section { padding: 74px 0; }
+      .section-head { max-width: 760px; margin-bottom: 30px; }
+      .section h2 { margin: 12px 0 0; font-size: clamp(34px, 4.4vw, 52px); line-height: 1.1; }
+      .desc { color: #a1a1aa; line-height: 1.8; font-size: 16px; }
+      .featured-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; align-items: stretch; }
+      .work { position: relative; overflow: hidden; border-radius: 24px; cursor: pointer; transition: .25s; }
+      .work:hover { transform: translateY(-6px); }
       .work.wide { grid-column: span 2; }
       .media { position: relative; overflow: hidden; background: #111; aspect-ratio: 2 / 3; }
       .work.wide .media { aspect-ratio: 16 / 9; }
-      .media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: .7s; }
-      .work:hover .media img { transform: scale(1.045); }
+      .media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: .55s; }
+      .work:hover .media img { transform: scale(1.04); }
       .shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.72), transparent 58%); }
-      .note { position: absolute; right: 16px; top: 16px; z-index: 3; border: 1px solid rgba(255,255,255,.16); background: rgba(0,0,0,.55); border-radius: 999px; padding: 7px 11px; font-size: 12px; color: #e4e4e7; backdrop-filter: blur(14px); }
+      .note { position: absolute; top: 14px; right: 14px; z-index: 2; border: 1px solid rgba(255,255,255,.15); background: rgba(0,0,0,.58); border-radius: 999px; padding: 6px 10px; font-size: 12px; color: #e4e4e7; }
       .play { position: absolute; inset: 0; display: grid; place-items: center; }
-      .play span { width: 78px; height: 78px; border-radius: 999px; display: grid; place-items: center; background: white; color: #09090b; font-size: 30px; box-shadow: 0 28px 90px rgba(99,102,241,.28); }
-      .zoom { position: absolute; right: 16px; bottom: 16px; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 999px; border: 1px solid rgba(255,255,255,.16); background: rgba(0,0,0,.55); opacity: 0; transition: .25s; }
+      .play span { width: 70px; height: 70px; border-radius: 999px; display: grid; place-items: center; background: #fff; color: #09090b; font-size: 26px; }
+      .zoom { position: absolute; right: 14px; bottom: 14px; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 999px; background: rgba(0,0,0,.55); opacity: 0; transition: .25s; }
       .work:hover .zoom { opacity: 1; }
-      .content { padding: 24px; }
-      .meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; font-size: 14px; }
-      .cat { color: #cffafe; background: rgba(255,255,255,.1); border-radius: 999px; padding: 6px 11px; }
+      .content { padding: 22px; }
+      .meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; font-size: 13px; }
+      .cat { color: #cffafe; background: rgba(255,255,255,.1); border-radius: 999px; padding: 6px 10px; }
       .year { color: #71717a; }
-      .content h3 { margin: 0; font-size: 24px; line-height: 1.2; }
-      .content p { color: #a1a1aa; line-height: 1.72; font-size: 14px; }
-      .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-      .tag { border: 1px solid rgba(255,255,255,.1); border-radius: 999px; padding: 6px 10px; color: #d4d4d8; font-size: 12px; }
-      .resume { display: grid; grid-template-columns: .78fr 1.22fr; gap: 32px; align-items: start; }
-      .resume-photo { overflow: hidden; border-radius: 34px; padding: 14px; }
-      .resume-photo img { width: 100%; aspect-ratio: 5 / 7; object-fit: cover; object-position: top; display: block; border-radius: 26px; }
-      .resume-card { border-radius: 34px; padding: 36px; }
-      .resume-card p { color: #d4d4d8; line-height: 1.9; }
-      .resume-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-      .resume-tags span { border: 1px solid rgba(255,255,255,.1); border-radius: 999px; padding: 6px 10px; color: #d4d4d8; font-size: 12px; }
-      .about { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; }
-      .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-      .skill, .step { border-radius: 24px; padding: 22px; }
-      .skill p, .step p { margin: 8px 0 0; color: #a1a1aa; line-height: 1.7; font-size: 14px; }
-      .process { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
-      .num { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 999px; background: white; color: #09090b; font-weight: 900; margin-bottom: 18px; }
-      .contact { border-radius: 34px; background: white; color: #09090b; padding: 46px; }
+      .content h3 { margin: 0; font-size: 22px; line-height: 1.2; }
+      .content p { margin: 12px 0 0; color: #a1a1aa; line-height: 1.68; font-size: 14px; }
+      .menu-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+      .menu-card { border-radius: 22px; padding: 20px; min-height: 138px; transition: .25s; }
+      .menu-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.12); }
+      .menu-card b { display: block; font-size: 18px; }
+      .menu-card span { display: block; margin-top: 10px; color: #a1a1aa; font-size: 14px; line-height: 1.6; }
+      .work-group { padding-top: 28px; }
+      .group-title { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 18px; border-top: 1px solid rgba(255,255,255,.1); padding-top: 32px; }
+      .group-title h3 { margin: 0; font-size: 28px; }
+      .group-title p { margin: 6px 0 0; color: #a1a1aa; }
+      .poster-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+      .banner-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+      .poster-grid .work, .banner-grid .work { grid-column: auto; }
+      .poster-grid .content, .banner-grid .content { min-height: 210px; }
+      .about { display: grid; grid-template-columns: .9fr 1.1fr; gap: 34px; align-items: start; }
+      .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .skill { border-radius: 22px; padding: 20px; }
+      .skill p { margin: 8px 0 0; color: #a1a1aa; line-height: 1.7; font-size: 14px; }
+      .process { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+      .step { border-radius: 20px; padding: 18px; border: 1px solid rgba(255,255,255,.1); background: rgba(0,0,0,.18); }
+      .num { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 999px; background: #fff; color: #09090b; font-weight: 900; margin-bottom: 14px; }
+      .step p { color: #a1a1aa; line-height: 1.65; font-size: 14px; }
+      .contact { border-radius: 30px; background: #fff; color: #09090b; padding: 42px; }
       .contact h2 { color: #09090b; }
       .contact p { color: #52525b; line-height: 1.7; }
-      .contact-lines { display: grid; gap: 12px; margin-top: 24px; }
+      .contact-lines { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 24px; }
       .contact-lines b { overflow-wrap: anywhere; }
       .modal { position: fixed; inset: 0; display: none; place-items: center; padding: 18px; z-index: 100; background: rgba(0,0,0,.78); backdrop-filter: blur(10px); }
       .modal.open { display: grid; }
-      .close { position: fixed; right: 22px; top: 22px; width: 44px; height: 44px; border: 0; border-radius: 999px; background: white; color: #09090b; cursor: pointer; font-size: 24px; }
-      .video-box { width: min(960px, 92vw); overflow: hidden; border-radius: 24px; border: 1px solid rgba(255,255,255,.15); background: #000; box-shadow: 0 24px 80px rgba(0,0,0,.5); }
+      .close { position: fixed; right: 22px; top: 22px; width: 44px; height: 44px; border: 0; border-radius: 999px; background: #fff; color: #09090b; cursor: pointer; font-size: 24px; }
+      .video-box { width: min(960px, 92vw); overflow: hidden; border-radius: 24px; border: 1px solid rgba(255,255,255,.15); background: #000; }
       .video-box iframe { width: 100%; aspect-ratio: 16 / 9; background: #000; display: block; border: 0; }
       .modal-text { padding: 20px; }
       .image-box { width: min(1180px, 94vw); text-align: center; }
       .image-box img { max-width: 100%; max-height: 82vh; width: auto; height: auto; border-radius: 24px; box-shadow: 0 24px 80px rgba(0,0,0,.52); }
       .image-box .modal-text { max-width: 760px; margin: 0 auto; }
-      @media (max-width: 1100px) {
-        .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      @media (max-width: 1120px) {
+        .hero { grid-template-columns: 1fr; min-height: auto; }
+        .profile-card { max-width: 520px; }
+        .featured-grid, .poster-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       }
-      @media (max-width: 900px) {
-        .hero, .resume, .about { grid-template-columns: 1fr; }
-        .hero { min-height: auto; padding-top: 104px; gap: 34px; }
-        .resume-photo { max-width: 520px; }
-        .contact { padding: 34px; }
-      }
-      @media (max-width: 560px) {
+      @media (max-width: 760px) {
         .wrap { width: min(100% - 28px, 1180px); }
-        .nav .wrap { height: 58px; align-items: center; }
+        .nav .wrap { min-height: 58px; }
         .brand span:last-child { display: none; }
-        .links { flex: 1; justify-content: flex-start; }
-        .links a { padding: 8px 10px; font-size: 13px; white-space: nowrap; }
-        .section { padding: 54px 0; }
-        h1 { font-size: 44px; }
-        .section h2 { font-size: 34px; }
-        .hero { padding-top: 88px; padding-bottom: 48px; }
-        .hero-card, .resume-photo, .resume-card, .contact { border-radius: 24px; }
-        .hero-card { padding: 8px; }
-        .hero-card img { max-height: 62vh; border-radius: 18px; }
-        .hero-caption { position: static; margin-top: 8px; border-radius: 18px; padding: 16px; }
-        .hero-caption h2 { font-size: 20px; }
-        .actions { flex-direction: column; }
-        .btn { width: 100%; }
-        .grid, .skills, .process { grid-template-columns: 1fr; }
+        .links a { padding: 8px 10px; font-size: 13px; }
+        .hero { padding-top: 86px; padding-bottom: 44px; }
+        .section { padding: 52px 0; }
+        .quick-facts, .featured-grid, .poster-grid, .banner-grid, .menu-grid, .skills, .process, .about, .contact-lines { grid-template-columns: 1fr; }
         .work.wide { grid-column: auto; }
         .media, .work.wide .media { aspect-ratio: 4 / 5; }
-        .content { padding: 20px; }
-        .resume-card { padding: 22px; }
-        .resume-card p, .lead, .desc { font-size: 15px; line-height: 1.8; }
-        .contact { padding: 24px; }
-        .modal { padding: 12px; align-items: center; }
-        .video-box { width: 96vw; border-radius: 18px; }
-        .image-box { width: 96vw; }
-        .image-box img { max-height: 76vh; border-radius: 18px; }
+        .profile-card, .resume-panel, .contact { border-radius: 24px; }
+        .resume-panel, .contact { padding: 22px; }
+        .resume-text { font-size: 15px; line-height: 1.82; }
+        .actions { flex-direction: column; }
+        .btn { width: 100%; }
+        .group-title { display: block; }
+        .video-box, .image-box { width: 96vw; }
       }
     </style>
   </head>
   <body>
     <header class="nav">
       <div class="wrap">
-        <a class="brand" href="#"><span class="logo">HH</span><span>HH L Portfolio</span></a>
-        <nav class="links"><a href="#featured">精选</a><a href="#works">作品</a><a href="#video">视频</a><a href="#resume">简历</a><a href="#about">关于</a><a href="#contact">联系</a></nav>
+        <a class="brand" href="#top"><span class="logo">李</span><span>李民昊 Portfolio</span></a>
+        <nav class="links">
+          <a href="#top">简历</a>
+          <a href="#featured">精选</a>
+          <a href="#library">作品</a>
+          <a href="#about">能力</a>
+          <a href="#contact">联系</a>
+        </nav>
       </div>
     </header>
 
-    <main>
+    <main id="top">
       <section class="hero wrap">
-        <div>
-          <div class="pill">AI Visual Creator / Designer Portfolio</div>
-          <h1>用视觉和故事，<span class="grad">让作品先开口。</span></h1>
-          <p class="lead">我是 HH L，这是一份为工作面试准备的个人作品集。作品涵盖文旅视觉、高端品牌概念、科技产品海报、短视频 Vlog、电影感海报、社媒营销、食品广告和插画文创，重点展示视觉审美、内容包装、AI 创作和快速执行能力。</p>
-          <div class="actions"><a class="btn primary" href="#featured">查看精选作品 →</a><button class="btn ghost" onclick="openVideo()">播放视频作品 ▶</button><a class="btn ghost" href="#contact">联系我</a></div>
+        <div class="profile-card glass">
+          <img src="public/portfolio/li-minhao-profile.webp" alt="李民昊证件照" />
+          <div class="profile-meta">
+            <div class="kicker">Resume</div>
+            <h1>李民昊</h1>
+            <p>设计基础 / 前端 UI / AI 应用 / 项目执行</p>
+            <div class="resume-tags"><span>平面设计</span><span>前端 UI</span><span>工程项目管理</span><span>AI 工具应用</span></div>
+          </div>
         </div>
-        <div class="hero-card glass">
-          <img src="public/portfolio/lh-movie-poster.webp" alt="A Journey of Heart and Time" />
-          <div class="hero-caption">
-            <small>Featured Poster</small>
-            <h2>A Journey of Heart and Time</h2>
-            <p>将人物侧脸与山河意象结合，形成电影级个人 IP 海报，突出情绪、东方美学和叙事感。</p>
+
+        <div class="resume-panel glass">
+          <div class="kicker">Personal Profile</div>
+          <h2>面试简历</h2>
+          <div class="quick-facts">
+            <div class="fact"><b>2021 毕业</b><span>濮阳职业技术学院 文秘（信息化应用）</span></div>
+            <div class="fact"><b>设计经历</b><span>平面设计、前端 UI、页面制作</span></div>
+            <div class="fact"><b>项目经验</b><span>现场安全管理、资料整理、沟通协调</span></div>
+            <div class="fact"><b>AI 应用</b><span>文档提效、内容创作、视觉辅助</span></div>
+          </div>
+          <div class="resume-text">
+            <p>我叫李民昊，2021年毕业于濮阳职业技术学院文秘（信息化应用）专业。毕业后曾从事平面设计、前端 UI 设计与页面制作等相关工作，具备一定的视觉审美能力、设计执行能力和基础前端实现经验。</p>
+            <p>后因个人发展及工作安排原因，转入土木工程行业，曾在天津援疆项目下级分包单位担任项目安全员岗位，主要负责现场安全管理、隐患排查、整改通知编制、资料整理及各方沟通协调等工作。在此过程中，我积累了一定的项目管理、现场协调、问题处理和执行落地经验，也提升了自身的责任意识与抗压能力。</p>
+            <p>2022年开始关注并了解人工智能相关技术，2023年起在实际工作中尝试运用 AI 工具辅助完成应急救援预案编写、隐患整改通知单制作、安全资料整理等工作，提高了文档处理效率和工作规范性。随着 AI 软件和大模型技术的发展，我也更加意识到 AI 对设计、内容创作和数字化办公领域的赋能作用。</p>
+            <p>我本身具备设计相关工作经历，同时也拥有工程项目一线管理经验，能够理解实际业务需求，并借助 AI 工具提升内容生产、视觉设计和工作执行效率。未来希望重新回到设计、AI 应用或数字内容相关方向发展，将过往的设计基础、项目经验和 AI 工具应用能力结合起来，在新的岗位中持续学习、快速成长，并为团队创造实际价值。</p>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="#featured">查看精选作品</a>
+            <a class="btn ghost" href="#library">进入作品分类</a>
+            <a class="btn ghost" href="#contact">联系我</a>
           </div>
         </div>
       </section>
 
-      <section id="featured" class="section wrap"><div class="section-head"><div class="kicker">Selected Works</div><h2>精选作品</h2><p class="desc">优先展示面试沟通中最能体现审美、叙事、商业包装和 AI 创作能力的项目。</p></div><div id="featuredGrid" class="grid"></div></section>
-      <section id="works" class="section wrap"><div class="section-head"><div class="kicker">Portfolio Library</div><h2>作品分类筛选</h2><p class="desc">按照文旅、品牌、科技、短视频和社媒等方向整理，便于快速匹配不同岗位关注点。</p></div><div id="filters" class="filters"></div><div id="workGrid" class="grid"></div></section>
-      <section id="video" class="section wrap"><div class="section-head"><div class="kicker">Motion Content</div><h2>视频作品展示</h2><p class="desc">用封面、播放按钮和弹窗呈现动态内容，突出短视频策划、角色 IP 和 AI 视频执行能力。</p></div><div id="videoGrid" class="grid"></div></section>
-
-      <section id="resume" class="section wrap resume">
-        <div class="resume-photo glass">
-          <img src="public/portfolio/li-minhao-profile.webp" alt="李民昊证件照" />
-          <div style="padding:20px">
-            <div class="kicker">Resume</div>
-            <h2 style="margin:12px 0 0;font-size:34px">李民昊</h2>
-            <p class="desc" style="margin:8px 0 0;font-size:14px">设计基础 / 前端 UI / AI 应用 / 项目执行</p>
-            <div class="resume-tags"><span>设计执行</span><span>前端 UI</span><span>项目安全管理</span><span>AI 工具应用</span></div>
-          </div>
+      <section id="featured" class="section wrap">
+        <div class="section-head">
+          <div class="kicker">Selected Works</div>
+          <h2>精选作品</h2>
+          <p class="desc">首页只保留最适合面试快速浏览的代表作品，突出审美、商业包装、AI 视频和个人海报叙事。</p>
         </div>
-        <div class="resume-card glass">
-          <div class="kicker">Personal Profile</div>
-          <h2>个人简历</h2>
-          <p>我叫李民昊，2021年毕业于濮阳职业技术学院文秘（信息化应用）专业。毕业后曾从事平面设计、前端 UI 设计与页面制作等相关工作，具备一定的视觉审美能力、设计执行能力和基础前端实现经验。</p>
-          <p>后因个人发展及工作安排原因，转入土木工程行业，曾在天津援疆项目下级分包单位担任项目安全员岗位，主要负责现场安全管理、隐患排查、整改通知编制、资料整理及各方沟通协调等工作。在此过程中，我积累了一定的项目管理、现场协调、问题处理和执行落地经验，也提升了自身的责任意识与抗压能力。</p>
-          <p>2022年开始关注并了解人工智能相关技术，2023年起在实际工作中尝试运用 AI 工具辅助完成应急救援预案编写、隐患整改通知单制作、安全资料整理等工作，提高了文档处理效率和工作规范性。随着 AI 软件和大模型技术的发展，我也更加意识到 AI 对设计、内容创作和数字化办公领域的赋能作用。</p>
-          <p>我本身具备设计相关工作经历，同时也拥有工程项目一线管理经验，能够理解实际业务需求，并借助 AI 工具提升内容生产、视觉设计和工作执行效率。未来希望重新回到设计、AI 应用或数字内容相关方向发展，将过往的设计基础、项目经验和 AI 工具应用能力结合起来，在新的岗位中持续学习、快速成长，并为团队创造实际价值。</p>
+        <div id="featuredGrid" class="featured-grid"></div>
+      </section>
+
+      <section id="library" class="section wrap">
+        <div class="section-head">
+          <div class="kicker">Portfolio Menu</div>
+          <h2>作品二级分类</h2>
+          <p class="desc">按面试官浏览习惯整理入口：先看类型，再进入对应作品组。横版和竖版分开展示，页面更整齐。</p>
+        </div>
+        <div class="menu-grid">
+          <a class="menu-card glass" href="#banners"><b>横版 Banner / 网页首屏</b><span>品牌概念、商业广告、宽幅视觉，适合快速判断构图和商业审美。</span></a>
+          <a class="menu-card glass" href="#posters"><b>竖版海报 / 图鉴长图</b><span>文旅、产品、电影、食品和社媒海报，统一竖版网格展示。</span></a>
+          <a class="menu-card glass" href="#video"><b>短视频与宠物 IP</b><span>以 B 站嵌入播放器呈现 Vlog 内容，并保留跳转按钮。</span></a>
+          <a class="menu-card glass" href="#about"><b>能力与流程</b><span>补充说明设计执行、商业包装、AI 应用和交付流程。</span></a>
+        </div>
+
+        <div id="banners" class="work-group">
+          <div class="group-title"><div><h3>横版 Banner / 网页首屏</h3><p>宽幅作品统一两列展示，保持视觉秩序。</p></div><a class="btn ghost" href="#library">返回分类</a></div>
+          <div id="bannerGrid" class="banner-grid"></div>
+        </div>
+
+        <div id="posters" class="work-group">
+          <div class="group-title"><div><h3>竖版海报 / 图鉴长图</h3><p>竖版作品统一网格展示，比例、标题和说明保持一致。</p></div><a class="btn ghost" href="#library">返回分类</a></div>
+          <div id="posterGrid" class="poster-grid"></div>
+        </div>
+
+        <div id="video" class="work-group">
+          <div class="group-title"><div><h3>短视频与宠物 IP</h3><p>动态内容以弹窗播放，适合展示 AI 视频创作和 IP 包装能力。</p></div><a class="btn ghost" href="#library">返回分类</a></div>
+          <div id="videoGrid" class="banner-grid"></div>
         </div>
       </section>
 
       <section id="about" class="section wrap about">
-        <div><div class="kicker">About Me</div><h2>我能为团队带来什么？</h2><p class="desc">我擅长把一个模糊的创意方向，快速拆解成可执行的视觉方案。无论是文旅海报、品牌视觉、科技产品广告、短视频封面、AI 生成图像、宠物 IP 视频，还是作品集网页，我都能从内容定位、视觉风格、信息排版到最终呈现进行完整包装。</p></div>
+        <div>
+          <div class="kicker">Capabilities</div>
+          <h2>我能为团队带来什么？</h2>
+          <p class="desc">我擅长把模糊的创意方向拆解为可执行的视觉方案，也能结合项目管理经验和 AI 工具，把内容、资料、视觉和页面呈现更快落地。</p>
+        </div>
         <div class="skills" id="skills"></div>
       </section>
 
-      <section class="section wrap"><div class="glass" style="border-radius:34px;padding:36px"><div class="kicker">Process</div><h2>工作流程</h2><div class="process" id="process"></div></div></section>
-      <section id="contact" class="section wrap"><div class="contact"><div class="kicker" style="color:#71717a">Contact</div><h2>想了解我能为团队带来什么？</h2><p>欢迎通过邮箱联系我，也可以查看我的更多作品和简历。</p><div class="contact-lines"><b>邮箱：l15515479790@163.com</b><b>微信：15515479790</b><b>作品集：hh-portfolio.com</b></div></div></section>
+      <section class="section wrap">
+        <div class="glass" style="border-radius:30px;padding:34px">
+          <div class="kicker">Process</div>
+          <h2>工作流程</h2>
+          <div class="process" id="process"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="section wrap">
+        <div class="contact">
+          <div class="kicker" style="color:#71717a">Contact</div>
+          <h2>想了解我能为团队带来什么？</h2>
+          <p>欢迎通过邮箱联系我，也可以查看我的更多作品和简历。</p>
+          <div class="contact-lines"><b>邮箱：l15515479790@163.com</b><b>微信：15515479790</b><b>作品集：hh-portfolio.com</b></div>
+        </div>
+      </section>
     </main>
 
     <div id="videoModal" class="modal">
@@ -214,16 +263,15 @@
     </div>
 
     <script>
-      const categories = ['全部', '文旅视觉', '品牌视觉', '科技产品', '短视频', '电影海报', '社媒营销', '食品广告', '插画文创'];
       const works = [
         ['河南旅游攻略长图','文旅视觉','henan-travel-guide.png','以河南地图、景点、美食和旅行路线为核心，制作信息密度高但视觉统一的文旅攻略长图。',['文旅攻略','信息图','国风视觉'],'poster'],
-        ['云南茶马古道地图','文旅视觉','yunnan-tea-horse-road.png','以古地图和手绘插画风格呈现云南茶马古道路线，结合地域文化、山水场景和旅行叙事。',['国风地图','旅游路线','文化视觉'],'wide','',true],
-        ['北京冬季城市图鉴','文旅视觉','beijing-winter-atlas.png','以冬季北京为主题，结合微缩城市、地标建筑和文旅海报排版，形成高级城市图鉴视觉。',['城市图鉴','3D视觉','文旅海报'],'wide','',true],
+        ['云南茶马古道地图','文旅视觉','yunnan-tea-horse-road.png','以古地图和手绘插画风格呈现云南茶马古道路线，结合地域文化、山水场景和旅行叙事。',['国风地图','旅游路线','文化视觉'],'poster','',true],
+        ['北京冬季城市图鉴','文旅视觉','beijing-winter-atlas.png','以冬季北京为主题，结合微缩城市、地标建筑和文旅海报排版，形成高级城市图鉴视觉。',['城市图鉴','3D视觉','文旅海报'],'poster','',true],
         ['北京 Beijing 城市海报','文旅视觉','beijing-retro-poster.png','以复古版画风格表现北京城市地标，突出城市文化、历史感和视觉记忆点。',['城市海报','复古插画','地标设计'],'poster'],
         ['Voyage Beyond Time','品牌视觉','luxury-voyage-women.png','高端旅行主题网页首屏视觉练习，强调品牌感、空间感和高级商业氛围。',['网页首屏','品牌视觉','商业审美'],'wide','概念练习 / 非商业稿'],
         ['Visionary Journeys','品牌视觉','luxury-voyage-men.png','以旅行、城市与人物为核心的高端品牌概念视觉，适合展示商业广告和网页 Banner 审美。',['品牌概念','Banner设计','高级视觉'],'wide','概念练习 / 非商业稿'],
         ['钻石恒久远','品牌视觉','de-beers-diamond-banner.png','以钻石珠宝为主体，采用深色奢华背景、金色文字和强光影质感，营造高级珠宝广告氛围。',['珠宝广告','奢华视觉','Banner设计'],'wide','概念练习 / 非商业稿',true],
-        ['突破自我 极限无限','科技产品','nike-running-banner.png','以运动员奔跑姿态、黑白高对比画面和强烈速度线条，呈现运动品牌广告的力量感和冲击力。',['运动广告','品牌Banner','高冲击视觉'],'wide','概念练习 / 非商业稿',true],
+        ['突破自我 极限无限','品牌视觉','nike-running-banner.png','以运动员奔跑姿态、黑白高对比画面和强烈速度线条，呈现运动品牌广告的力量感和冲击力。',['运动广告','品牌Banner','高冲击视觉'],'wide','概念练习 / 非商业稿',true],
         ['天籁音质 肆意澎湃','科技产品','earbuds-poster.png','以无线耳机产品为核心，结合水滴、蓝色声波和科技光效，突出产品质感和功能卖点。',['产品海报','科技视觉','电商广告'],'poster'],
         ['净享生活','科技产品','robot-vacuum-poster.png','以扫地机器人为主体，结合智能科技空间、蓝色网格光效和功能图标，呈现现代家电广告视觉。',['家电海报','科技产品','功能卖点'],'poster'],
         ['阿白的日常 Vlog','短视频','abai-daily-vlog-cover.jpg','以奶白法斗“阿白”为主角，打造温暖治愈的宠物日常 Vlog 内容，展示 AI 视频创作、角色 IP 包装和内容策划能力。',['宠物IP','AI视频','Vlog封面','短视频内容'],'wide','视频作品 / B站展示',true,true],
@@ -234,19 +282,19 @@
       ].map(([title, category, file, desc, tags, shape, note, featured, video]) => ({ title, category, image: `public/portfolio/${file.replace(/\.(png|jpg|jpeg)$/i, '.webp')}`, desc, tags, shape, note, featured, video }));
 
       function escapeText(text) { return text.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, ' '); }
-      function card(work) {
+      function card(work, compact = false) {
         return `<article class="work glass ${work.shape === 'wide' ? 'wide' : ''}" onclick="${work.video ? 'openVideo()' : `openImage('${escapeText(work.title)}','${work.image}','${escapeText(work.desc)}')`}">
           ${work.note ? `<span class="note">${work.note}</span>` : ''}
           <div class="media"><img src="${work.image}" alt="${work.title}" /><div class="shade"></div>${work.video ? '<div class="play"><span>▶</span></div>' : '<div class="zoom">⌕</div>'}</div>
-          <div class="content"><div class="meta"><span class="cat">${work.category}</span><span class="year">2026</span></div><h3>${work.title}</h3><p>${work.desc}</p><div class="tags">${work.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div></div>
+          <div class="content"><div class="meta"><span class="cat">${work.category}</span><span class="year">2026</span></div><h3>${work.title}</h3>${compact ? '' : `<p>${work.desc}</p>`}<div class="tags">${work.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div></div>
         </article>`;
       }
-      function render(list, target) { document.getElementById(target).innerHTML = list.map(card).join(''); }
-      render(works.filter(w => w.featured), 'featuredGrid');
-      render(works, 'workGrid');
+      function render(list, target, compact = false) { document.getElementById(target).innerHTML = list.map(item => card(item, compact)).join(''); }
+      render(works.filter(w => w.featured).slice(0, 6), 'featuredGrid');
+      render(works.filter(w => w.shape === 'wide' && !w.video), 'bannerGrid');
+      render(works.filter(w => w.shape !== 'wide' && !w.video), 'posterGrid', true);
       render(works.filter(w => w.video), 'videoGrid');
-      document.getElementById('filters').innerHTML = categories.map((c, i) => `<button class="filter ${i === 0 ? 'active' : ''}" onclick="filterWorks('${c}', this)">${c}</button>`).join('');
-      function filterWorks(category, btn) { document.querySelectorAll('.filter').forEach(b => b.classList.remove('active')); btn.classList.add('active'); render(category === '全部' ? works : works.filter(w => w.category === category), 'workGrid'); }
+
       const skills = [['视觉设计','海报、封面、品牌视觉、文旅图鉴'], ['商业包装','产品卖点提炼、广告视觉、社媒传播'], ['短视频内容','Vlog 企划、视频封面、角色 IP 包装'], ['内容整理','作品分类、项目命名、面试表达'], ['AI 创作','AI 图片生成、视频生成、提示词优化、风格统一'], ['网页展示','单页作品集、响应式布局、动效设计']];
       document.getElementById('skills').innerHTML = skills.map(s => `<div class="skill glass"><b>${s[0]}</b><p>${s[1]}</p></div>`).join('');
       const steps = ['明确目标：根据面试岗位确定作品展示重点','整理作品：把作品分为清晰类型，提炼亮点','视觉包装：用统一风格提升作品集专业感','视频呈现：用封面、播放弹窗和案例说明展示动态内容','快速交付：生成可上线、可发送、可面试展示的网站'];
