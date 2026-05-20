@@ -21,10 +21,11 @@
       button { font: inherit; }
       .nav { position: fixed; inset: 0 0 auto; z-index: 50; border-bottom: 1px solid rgba(255,255,255,.1); background: rgba(9,9,11,.74); backdrop-filter: blur(22px); }
       .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
-      .nav .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+      .nav .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
       .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; }
       .logo { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 16px; background: white; color: #09090b; }
-      .links { display: flex; gap: 8px; }
+      .links { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+      .links::-webkit-scrollbar { display: none; }
       .links a { padding: 10px 14px; border-radius: 999px; color: #d4d4d8; font-size: 14px; }
       .links a:hover { background: rgba(255,255,255,.1); color: white; }
       .hero { min-height: 100vh; padding: 118px 0 72px; display: grid; grid-template-columns: 1.04fr .96fr; align-items: center; gap: 56px; }
@@ -89,6 +90,7 @@
       .contact h2 { color: #09090b; }
       .contact p { color: #52525b; line-height: 1.7; }
       .contact-lines { display: grid; gap: 12px; margin-top: 24px; }
+      .contact-lines b { overflow-wrap: anywhere; }
       .modal { position: fixed; inset: 0; display: none; place-items: center; padding: 18px; z-index: 100; background: rgba(0,0,0,.78); backdrop-filter: blur(10px); }
       .modal.open { display: grid; }
       .close { position: fixed; right: 22px; top: 22px; width: 44px; height: 44px; border: 0; border-radius: 999px; background: white; color: #09090b; cursor: pointer; font-size: 24px; }
@@ -98,17 +100,44 @@
       .image-box { width: min(1180px, 94vw); text-align: center; }
       .image-box img { max-width: 100%; max-height: 82vh; width: auto; height: auto; border-radius: 24px; box-shadow: 0 24px 80px rgba(0,0,0,.52); }
       .image-box .modal-text { max-width: 760px; margin: 0 auto; }
+      @media (max-width: 1100px) {
+        .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
       @media (max-width: 900px) {
-        .links { display: none; }
         .hero, .resume, .about { grid-template-columns: 1fr; }
-        .grid, .skills, .process { grid-template-columns: 1fr; }
-        .work.wide { grid-column: auto; }
+        .hero { min-height: auto; padding-top: 104px; gap: 34px; }
+        .resume-photo { max-width: 520px; }
+        .contact { padding: 34px; }
       }
       @media (max-width: 560px) {
         .wrap { width: min(100% - 28px, 1180px); }
+        .nav .wrap { height: 58px; align-items: center; }
+        .brand span:last-child { display: none; }
+        .links { flex: 1; justify-content: flex-start; }
+        .links a { padding: 8px 10px; font-size: 13px; white-space: nowrap; }
+        .section { padding: 54px 0; }
         h1 { font-size: 44px; }
+        .section h2 { font-size: 34px; }
+        .hero { padding-top: 88px; padding-bottom: 48px; }
+        .hero-card, .resume-photo, .resume-card, .contact { border-radius: 24px; }
+        .hero-card { padding: 8px; }
+        .hero-card img { max-height: 62vh; border-radius: 18px; }
+        .hero-caption { position: static; margin-top: 8px; border-radius: 18px; padding: 16px; }
+        .hero-caption h2 { font-size: 20px; }
         .actions { flex-direction: column; }
         .btn { width: 100%; }
+        .grid, .skills, .process { grid-template-columns: 1fr; }
+        .work.wide { grid-column: auto; }
+        .media, .work.wide .media { aspect-ratio: 4 / 5; }
+        .content { padding: 20px; }
+        .resume-card { padding: 22px; }
+        .resume-card p, .lead, .desc { font-size: 15px; line-height: 1.8; }
+        .contact { padding: 24px; }
+        .modal { padding: 12px; align-items: center; }
+        .video-box { width: 96vw; border-radius: 18px; }
+        .image-box { width: 96vw; }
+        .image-box img { max-height: 76vh; border-radius: 18px; }
       }
     </style>
   </head>
